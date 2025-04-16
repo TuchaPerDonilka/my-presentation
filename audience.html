@@ -1,9 +1,31 @@
-<script>
-    Reveal.initialize({
-        multiplex: {
-            secret: null,
-            id: 'Степанов-Д.С', // Должен совпадать с ID ведущего
-            url: 'https://reveal-multiplex.glitch.me'
-        }
-    });
-</script>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Презентация (Зритель)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <style>
+        .reveal-viewport { background: #1a1a1a; } /* Темный фон для контраста */
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <!-- Слайды подгрузятся автоматически -->
+        </div>
+    </div>
+
+    <!-- Обязательные скрипты -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.1/socket.io.min.js"></script>
+    <script>
+        Reveal.initialize({
+            multiplex: {
+                secret: null, // Для зрителей всегда null!
+                id: 'stepanov', // Должен совпадать с ID в файле ведущего
+                url: 'https://reveal-multiplex.glitch.me'
+            },
+            plugins: [ RevealMultiplex ]
+        });
+    </script>
+</body>
+</html>
